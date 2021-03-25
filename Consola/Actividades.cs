@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ActividadesConsola
+namespace Consola
 {
     public class Actividades
     {
@@ -41,15 +41,22 @@ namespace ActividadesConsola
             } while (Frase != "fin");
         }
 
-        public void A5()
+        public void A6()
         {
             ConsoleKeyInfo Tecla;
 
             do
             {
-                Console.WriteLine("Presione Ctrl + F para salir");
-                Tecla = Console.ReadKey(true);
-            } while (Tecla.Modifiers != ConsoleModifiers.Control && Tecla.Key != ConsoleKey.F);
+                Console.WriteLine("Presione Shift + Ctrl + F para salir");
+                Tecla = Console.ReadKey();
+                if ((Tecla.Key == ConsoleKey.F) &&
+                    ((Tecla.Modifiers & ConsoleModifiers.Control) != 0) &&
+                    (Tecla.Modifiers & ConsoleModifiers.Shift)!=0)
+                {
+                    break;
+                }
+
+            } while (true);
 
         }
     }
