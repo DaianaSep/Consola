@@ -41,6 +41,26 @@ namespace Consola
             } while (Frase != "fin");
         }
 
+        public void A5()
+        {
+            ConsoleKeyInfo Tecla;
+
+            do
+            {
+                Console.WriteLine("Presione Ctrl + F para salir");
+                Tecla = Console.ReadKey();
+
+                if (((Tecla.Modifiers & ConsoleModifiers.Control) !=0) &&
+                    (Tecla.Key == ConsoleKey.F) &&
+                    ((Tecla.Modifiers & ConsoleModifiers.Shift) == 0) &&
+                    ((Tecla.Modifiers & ConsoleModifiers.Alt) == 0))
+                {
+                    break;
+                }
+
+            } while (true);
+
+        }
         public void A6()
         {
             ConsoleKeyInfo Tecla;
@@ -51,7 +71,8 @@ namespace Consola
                 Tecla = Console.ReadKey();
                 if ((Tecla.Key == ConsoleKey.F) &&
                     ((Tecla.Modifiers & ConsoleModifiers.Control) != 0) &&
-                    (Tecla.Modifiers & ConsoleModifiers.Shift)!=0)
+                    ((Tecla.Modifiers & ConsoleModifiers.Shift)!=0) &&
+                    ((Tecla.Modifiers & ConsoleModifiers.Alt) == 0))
                 {
                     break;
                 }
